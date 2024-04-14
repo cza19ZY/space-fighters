@@ -1,8 +1,15 @@
 # 🚀 SPACE FIGHTERS
-👾 **Space fighters** is a two-player 2D game made with [pygame](www.pygame.org/), based on this repository: https://github.com/techwithtim/PygameForBeginners. <br><br>
+👾 **Space fighters** is a two-player 2D game made with [pygame](www.pygame.org/) in **python**, based on this repository: https://github.com/techwithtim/PygameForBeginners. <br><br>
 <img width="445" alt="Beginning image" src="https://github.com/cza19ZY/space-fighters/assets/85120094/44bebf67-73e3-4ec7-b3ec-e9fa642d71b4">
 
 ## ⚙️ HOW TO PLAY
+
+### 💾 REQUIREMENTS
+#### 🐍 PYTHON
+You can easily download python clicking [here](https://www.python.org/downloads/) and selecting the version your computer needs.
+#### 🎮 PYGAME
+There are instructions in [pygame](www.pygame.org/), but basically you have to open your operating system **shell** and write the following command line: `pip install pygame`.
+This will automatically download the library of [pygame](www.pygame.org/).
 
 ### 🧩 SUMMARY
 🎯 There are two players, each one a being different ship, which are **separated by a white line**. They have **10 points of health** and **infinite bullets** to shoot, each bullets can take one point of health from the enemy ship.

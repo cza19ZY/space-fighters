@@ -137,8 +137,8 @@ def draw_winner(text):
     else:
         winner_color = RED
     draw_text = WINNER_FONT.render(text, 1, winner_color)
-    WIN.blit(draw_text, (WIDTH/2 - draw_text.get_width() /
-                         2, HEIGHT/2 - draw_text.get_height()/2))
+    WIN.blit(draw_text, (WIDTH // 2 - draw_text.get_width() // 2, HEIGHT // 2 - draw_text.get_height() // 2))
+    
     pygame.display.update()
     pygame.time.delay(3000)
 
@@ -149,9 +149,9 @@ def start():
         clock = pygame.time.Clock()
         clock.tick(FPS)
 
-        WIN.blit(START_BG,(0,0))
         start_text = NORMAL_FONT.render("PRESS 'ENTER' TO START", 1, YELLOW)
         title_text = TITLE_FONT.render("SPACE FIGHTERS", 1, YELLOW)
+
         WIN.blit(START_BG, (0, 0))
         WIN.blit(start_text, (WIDTH // 2 - start_text.get_width() // 2, HEIGHT // 2 - start_text.get_height() + 100)) # crear función a parte
         WIN.blit(title_text, (WIDTH // 2 - title_text.get_width() // 2, HEIGHT // 2 - title_text.get_height() - 30))
@@ -161,6 +161,7 @@ def start():
         WIN.blit(title_text, (WIDTH // 2 - title_text.get_width() // 2, HEIGHT // 2 - title_text.get_height() - 30))
         time.sleep(0.5)
         pygame.display.update()
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 quit() # podrías poner pygame.quit(), start = False... si este no fuese el programa principal, esto termina el programa directamente
@@ -232,6 +233,7 @@ def main():
 
     display_red_spaceship = True
     display_yellow_spaceship = True
+    
     red_bullets = []
     yellow_bullets = []
 
@@ -293,13 +295,13 @@ def main():
                 quit() # podrías poner pygame.quit(), run = False... si este no fuese el programa principal, esto termina el programa directamente
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LSHIFT and len(yellow_bullets) < MAX_BULLETS:
+                if event.key == pygame.K_LCTRL and len(yellow_bullets) < MAX_BULLETS:
                     bullet = pygame.Rect(
                         yellow.x + yellow.width, yellow.y + yellow.height//2 - 2, 10, 5)
                     yellow_bullets.append(bullet)
                     BULLET_FIRE_SOUND.play()
 
-                if event.key == pygame.K_RSHIFT and len(red_bullets) < MAX_BULLETS:
+                if event.key == pygame.K_RCTRL and len(red_bullets) < MAX_BULLETS:
                     bullet = pygame.Rect(
                         red.x, red.y + red.height//2 - 2, 10, 5)
                     red_bullets.append(bullet)

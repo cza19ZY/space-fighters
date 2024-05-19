@@ -114,10 +114,10 @@ def red_handle_movement(keys_pressed, red):
         red.y += VEL
 
 
-def handle_bullets(yellow_bullets, red_bullets, yellow, red):
+def handle_bullets(yellow_bullets, red_bullets, yellow, red, hit_yellow_cd, hit_red_cd, time_now):
     for bullet in yellow_bullets:
         bullet.x += BULLET_VEL
-        if red.colliderect(bullet):
+        if red.colliderect(bullet) and hit_red_cd < time_now:
             yellow_bullets.remove(bullet)
             pygame.event.post(pygame.event.Event(RED_HIT))
         elif bullet.x > WIDTH:
@@ -125,7 +125,7 @@ def handle_bullets(yellow_bullets, red_bullets, yellow, red):
 
     for bullet in red_bullets:
         bullet.x -= BULLET_VEL
-        if yellow.colliderect(bullet):
+        if yellow.colliderect(bullet) and hit_yellow_cd < time_now:
             pygame.event.post(pygame.event.Event(YELLOW_HIT))
             red_bullets.remove(bullet)
         elif bullet.x < 0:
@@ -272,7 +272,7 @@ def main():
         yellow_handle_movement(keys_pressed, yellow)
         red_handle_movement(keys_pressed, red)
 
-        handle_bullets(yellow_bullets, red_bullets, yellow, red)
+        handle_bullets(yellow_bullets, red_bullets, yellow, red, hit_yellow_cd, hit_red_cd, time_now)
 
         draw_window(red, yellow, red_bullets, yellow_bullets,
                     red_health, yellow_health, display_red_spaceship, display_yellow_spaceship)
@@ -310,13 +310,11 @@ def main():
             if event.type == RED_HIT:
                 hit_red_cd = time_now + 3000
                 red_health -= 1
-                red.width = 0
                 BULLET_HIT_SOUND.play()   
 
             if event.type == YELLOW_HIT:
                 hit_yellow_cd = time_now + 3000
                 yellow_health -= 1
-                yellow.width = 0
                 BULLET_HIT_SOUND.play()
 
 # Básicamente indica que la función solo se ejecuta si es

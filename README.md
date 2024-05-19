@@ -15,7 +15,7 @@ This will automatically download the library of [pygame](www.pygame.org/).
 🎯 There are two players, each one a being different ship, which are **separated by a white line**. They have **10 points of health** and **infinite bullets** to shoot, each bullets can take one point of health from the enemy ship.
 The player has to **reload** its bullets after shooting 3 of them, this is represented by a cooldown after 3 shots. <br>
 💥 After being hit, the damaged ship has **3 seconds of invulnerability**. It will **blink** to show whether it is vulnerable or not. <br>
-🎖 At the end of the game, the program will show which color was the winner one and will ask the players if they want to play another match. <br><br>
+🎖 At the end of the game, the program will show which color was the winner and will ask the players if they want to play another match. <br><br>
 <img width="445" alt="Game Image" src="https://github.com/cza19ZY/space-fighters/assets/85120094/3125a350-9eb9-46d5-b30a-82a6df999c7a">
 
 ### 🕹 KEYS
